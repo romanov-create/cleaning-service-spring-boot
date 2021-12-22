@@ -58,11 +58,17 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
-        <!-- Swagger -->
         <dependency>
+            <!-- Swagger -->
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-ui</artifactId>
             <version>1.5.10</version>
+        </dependency>
+        <dependency>
+            <!-- Mapper for DTO  -->
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>1.4.2.Final</version>
         </dependency>
     </dependencies>
 
