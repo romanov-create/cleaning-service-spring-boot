@@ -1,6 +1,10 @@
 package ua.od.vkomforte.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "customers")
@@ -55,5 +59,15 @@ public class Customer {
                 ", lastName='" + lastName + '\'' +
                 ", phone='" + phone + '\'' +
                 '}';
+    }
+    @OneToMany(fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    @JoinColumn(name = "customer_id")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private List<Order> orderList = new ArrayList<>();
+
+    public void addOrder(Order order) {
+        orderList.add(order);
     }
 }
